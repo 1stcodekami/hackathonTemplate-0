@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { FaTag} from "react-icons/fa6";
 
 export default function BlogSection() {
   return (
@@ -46,9 +47,13 @@ function BlogCard({ image, header }: Blog) {
               />
 
               <p className="text-xs md:text-base text-[#9F9F9F]">
-                17 Sept, 2024
+                06 Dec 2024
               </p>
+            <span className="flex gap-2 text-[#9F9F9F]"><FaTag className="mt-1 ml-5"/>Wood</span>
+
             </div>
+
+
           </div>
 
           <div className="flex flex-col gap-1.5">
@@ -81,11 +86,11 @@ function BlogCard({ image, header }: Blog) {
 
 const blog: Blog[] = [
   {
-    image: "/images/blog1.png",
+    image: "/images/blog2.jpg",
     header: "Going all-in with millennial design",
   },
   {
-    image: "/images/blog2.png",
+    image: "/images/blg2.jpg",
     header: "Exploring new ways of decorating",
   },
   {

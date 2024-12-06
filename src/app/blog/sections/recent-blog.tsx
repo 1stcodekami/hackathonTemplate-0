@@ -28,7 +28,7 @@ function RecentBlogCard({ image, header }: Recent) {
 
       <div className="flex flex-col justify-center">
         <p className="text-sm">{header}</p>
-        <p className="text-xs text-[#9F9F9F]">17 Sept, 2024</p>
+        <p className="text-xs text-[#9F9F9F]">08 Dec 2024</p>
       </div>
     </Link>
   );
@@ -36,19 +36,19 @@ function RecentBlogCard({ image, header }: Recent) {
 
 const recent: Recent[] = [
   {
-    image: "/images/rec1.png",
+    image: "/images/b1.png",
     header: "Going all-in with millennial design",
   },
   {
-    image: "/images/rec2.png",
+    image: "/images/b2.png",
     header: "Exploring new ways of decorating",
   },
   {
-    image: "/images/rec3.png",
+    image: "/images/b3.png",
     header: "Handmade pieces that took time to make",
   },
-  { image: "/images/rec4.png", header: "Modern home in Milan" },
-  { image: "/images/rec5.png", header: "Colorful office redesign" },
+  { image: "/images/b4.png", header: "Modern home in Milan" },
+  { image: "/images/b5.png", header: "Colorful office redesign" },
 ];
 
 interface Recent {
