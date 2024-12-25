@@ -8,23 +8,23 @@ const Insta = () => {
       <Image
         src="/images/Rectangle 17.png"
         alt="Rectangle 17"
-        width={1920} // Set a large width for responsiveness
-        height={1080} // Aspect ratio maintained
-        objectFit="cover" // Ensures the image covers the container
+        width={1920}
+        height={1080}
+        style={{ objectFit: "cover" }}
         className="w-full h-auto"
       />
 
       {/* Overlay Text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <h1 className="text-4xl md:text-6xl font-poppins font-bold text-black">
-          Our Instagram 
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-black">
+          Our Instagram
         </h1>
-        <br />
-        
-        <h1 className="text-xl md:text-xl font-poppins font-bold text-black">
+        <p className="mt-4 text-lg sm:text-xl md:text-2xl font-poppins font-medium text-black">
           Follow our store on Instagram
-        </h1> <br />
-        <button className='border-2 font-poppins text-[24px] rounded-[100] bg-[#FAF4F480] py-2 px-10'>Follow Us</button>
+        </p>
+        <button className="mt-6 border-2 font-poppins text-lg sm:text-xl md:text-2xl rounded-full bg-[#FAF4F480] py-2 px-6 sm:px-8 md:px-10 lg:px-12 hover:bg-[#FAF4F4] transition-all">
+          Follow Us
+        </button>
       </div>
     </div>
   );

@@ -123,7 +123,7 @@ const Blogs = () => {
 
       {/* View More Link */}
       <div>
-        <Link href="/" className="font-poppins text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold relative">
+        <Link href="/blog" className="font-poppins text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold relative">
           <span className="inline-block">View All Post</span>
           <span className="absolute bottom-[-15px] left-0 h-[2px] bg-black w-full"></span>
         </Link>

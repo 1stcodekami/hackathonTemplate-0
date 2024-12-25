@@ -1,8 +1,19 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Head = () => {
+  const router = useRouter();
+
+  // Navigate to the specific product page
+  const handleShopNowClick = () => {
+    // Example item ID for Shop Now
+    //const exampleProductId = 'example-product-id'; // Replace with actual product ID if available
+    router.push(`/shop/product/${190}`);
+  };
+
   return (
     <div className="w-full flex flex-col md:flex-row bg-[#FBEBB5] items-center">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
@@ -11,16 +22,19 @@ const Head = () => {
           <h1 className="text-[32px] md:text-[64px] font-bold leading-tight">
             Rocket single <br /> seater
           </h1>
-          <div className=''>
-          <Link href="/" className="text-base font-normal relative">
-            <span className="inline-block">
-              Shop Now
-            </span>
-            <span
-              className="absolute bottom-[-8px] left-0 h-[2px] bg-black"
-              style={{ width: "calc(100% - 2px)" }}
-            ></span>
-          </Link></div>
+          <div>
+            {/* Shop Now Button */}
+            <button
+              onClick={handleShopNowClick}
+              className="text-base font-normal relative focus:outline-none"
+            >
+              <span className="inline-block">Shop Now</span>
+              <span
+                className="absolute bottom-[-8px] left-0 h-[2px] bg-black"
+                style={{ width: 'calc(100% - 2px)' }}
+              ></span>
+            </button>
+          </div>
         </div>
 
         {/* Right Section */}
@@ -40,5 +54,3 @@ const Head = () => {
 };
 
 export default Head;
-
-// background: #FAF4F4;

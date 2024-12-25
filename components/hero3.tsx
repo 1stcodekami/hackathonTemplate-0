@@ -1,8 +1,18 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Hero3 = () => {
+  const router = useRouter();
+
+  // Navigate to the specific product page
+  const handleOrderNowClick = () => {
+    // const exampleProductId = 'asgaardsofa'; // Replace with the actual product ID or slug
+    router.push(`/shop/product/${140}`);
+  };
+
   return (
     <div className="w-full flex flex-col md:flex-row bg-[#FFF9E5] items-center">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
@@ -26,10 +36,12 @@ const Hero3 = () => {
             Asgaard sofa
           </h1>
           <div>
-            <Link href="/" className="text-base font-poppins font-normal relative">
-              <span className="inline-block border-2 py-4 px-12 border-black">Order Now</span>
-             
-            </Link>
+            <button
+              onClick={handleOrderNowClick}
+              className="text-base font-poppins font-normal relative focus:outline-none border-2 py-4 px-12 border-black cursor-pointer"
+            >
+              Order Now
+            </button>
           </div>
         </div>
       </div>

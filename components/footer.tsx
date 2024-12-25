@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div>
         <footer className="text-gray-600 body-font">
-  <div className="container px-8 py-24 mx-auto">
+  <div className="container px-8 pt-24 border-b-2 mx-auto">
     <div className="flex flex-wrap md:text-left text-center order-first ">
       <div className="lg:w-1/4 md:w-1/2 w-full px-4 pt-14">
         
@@ -15,7 +15,7 @@ const Footer = () => {
         FL 33134 USA</p>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-gray-600 tracking-widest text-sm mb-3 gap-5">
+        <h2 className="title-font font-medium text-[#9F9F9F] tracking-widest text-sm mb-3 gap-5">
           Links
         </h2>
         <nav className="list-none mb-10 pt-6  space-y-10 font-bold text-black">
@@ -34,7 +34,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-      <h2 className="title-font font-medium text-gray-600 tracking-widest text-sm mb-3 gap-5">
+      <h2 className="title-font font-medium text-[#9F9F9F] tracking-widest text-sm mb-3 gap-5">
           Help 
         </h2>
         <nav className="list-none mb-10 pt-6  space-y-10 font-bold text-black">
@@ -52,29 +52,29 @@ const Footer = () => {
         </nav>
       </div>
       <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+        <h2 className="title-font font-medium text-[#9F9F9F] tracking-widest text-sm mb-3">
           Newsletter
         </h2>
         <div className="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-          <div className="pt-7 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2 flex gap-2">
-
-            <input
-              type="text"
-              id="footer-field"
-              placeholder='Enter Your Email Adress '
-              name="footer-field"
-              className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 mt-1"
-            />
-            <p className='underline font-medium pt-3 text-[18px]'>SUBSCRIBE</p>
-          </div>
-         
-        </div>
+        <div className="pt-7 w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2 flex sm:flex-row flex-col gap-2">
+        <input
+          type="text"
+          id="footer-field"
+          placeholder="Enter Your Email Address"
+          name="footer-field"
+          className="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 mt-1"
+        />
+        <button className="underline font-medium pt-3 text-[18px] hover:text-blue-500 focus:text-blue-500">
+          SUBSCRIBE
+        </button>
+      </div>
+    </div>
         
       </div>
     </div>
   </div>
   <div className="bg-white">
-    <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+    <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
       
       <p className="text-sm  sm:ml-6 sm:mt-0 mt-4 text-[15px] text-black">
       2022 Meubel House. All rights reverved        

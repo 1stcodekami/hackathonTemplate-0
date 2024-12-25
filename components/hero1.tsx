@@ -13,7 +13,7 @@ const Hero1 = () => {
           {/* Image */}
           <div className="w-full flex justify-center md:justify-start">
             <Image
-              src="/images/Granite square side table 1.png"
+              src="/images/Granite square side table.png"
               alt="Granite square side table 1"
               width={1092}
               height={1641}
@@ -29,7 +29,7 @@ const Hero1 = () => {
 
           {/* Link */}
           <div>
-            <Link href="/" className="text-base font-normal relative">
+            <Link href="/shop" className="text-base font-normal relative">
               <span className="inline-block">View More</span>
               <span className="absolute bottom-[-6px] left-0 h-[2px] bg-black w-full"></span>
             </Link>
@@ -57,7 +57,7 @@ const Hero1 = () => {
 
           {/* Link */}
           <div>
-            <Link href="/" className="text-base font-normal relative">
+            <Link href="/shop" className="text-base font-normal relative">
               <span className="inline-block">View More</span>
               <span className="absolute bottom-[-6px] left-0 h-[2px] bg-black w-full"></span>
             </Link>
