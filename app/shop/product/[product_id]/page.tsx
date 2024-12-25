@@ -1,3 +1,4 @@
+// Import necessary modules
 import React from "react";
 import ProductDetailExtraInfoSection from "@/components/sections/shop/product-detail/ProductDetailExtraInfoSection";
 import ProductDetailRelatedSection from "@/components/sections/shop/product-detail/ProductDetailRelatedSection";
@@ -11,8 +12,9 @@ export interface PageProps {
   params: { product_id: string };  // Ensure product_id is treated as a string
 }
 
-export default function ProductDetailPage({ params }: PageProps) {
-  const { product_id } = params;
+export default async function ProductDetailPage({ params }: PageProps) {
+  // Await the params object as required by Next.js
+  const { product_id } = await params;  // Await the params
 
   // Find the product based on product_id
   const product = PRODUCTS.find((item) => item.id === product_id);
@@ -51,7 +53,7 @@ export default function ProductDetailPage({ params }: PageProps) {
   );
 }
 
-// Correct the generateStaticParams function (Ensure this function returns an array directly)
+// Correct the generateStaticParams function
 export async function generateStaticParams() {
   // Ensure this is async and returns a promise resolving to an array of params objects
   return PRODUCTS.map((product) => ({
