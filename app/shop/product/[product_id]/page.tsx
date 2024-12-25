@@ -6,13 +6,12 @@ import ProductDetailTopSection from "@/components/sections/shop/product-detail/P
 import { Separator } from "@/components/ui/separator";
 import { PRODUCTS } from "@/app/lib/constants";
 
-interface ProductDetailPageProps {
-  params: {
-    product_id: string; // Ensure proper typing for dynamic route parameters
-  };
+// Define PageProps explicitly for type safety
+export interface PageProps {
+  params: Record<string, string>;
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default function ProductDetailPage({ params }: PageProps) {
   const { product_id } = params;
 
   // Find the product based on product_id
@@ -20,7 +19,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
   // Handle the case where the product is not found
   if (!product) {
-    return <div>Product not found</div>; // Customize this message as needed
+    return <div>Product not found</div>;
   }
 
   return (
@@ -50,4 +49,11 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       </div>
     </div>
   );
+}
+
+// Generate static params for dynamic routes
+export async function generateStaticParams() {
+  return PRODUCTS.map((product) => ({
+    params: { product_id: product.id },
+  }));
 }
