@@ -53,7 +53,7 @@ export default function ProductDetailPage({ params }: PageProps) {
 
 // Correct the generateStaticParams function (Ensure this function returns an array directly)
 export async function generateStaticParams() {
-  // Ensure this returns an array of objects with the correct shape
+  // Ensure this is async and returns a promise resolving to an array of params objects
   return PRODUCTS.map((product) => ({
     params: { product_id: product.id },
   }));
