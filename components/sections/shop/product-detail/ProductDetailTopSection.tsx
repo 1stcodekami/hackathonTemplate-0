@@ -3,7 +3,6 @@ import { ChevronRight } from "lucide-react";
 import React from "react";
 
 export default function ProductDetailTopSection({
-  product_id,
   productTitle,
 }: {
   product_id: string;

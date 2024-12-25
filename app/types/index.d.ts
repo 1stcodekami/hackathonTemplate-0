@@ -1,14 +1,14 @@
 interface IProduct {
   id: string;
-  productImageUrl: string | undefined;
-  productName: string | undefined;
+  productImageUrl?: string; // Use `?` for optional fields instead of `| undefined`
+  productName?: string;
   quantity: number;
   unitPrice: number;
 }
 
-interface IResponse {
+interface IResponse<T = unknown> { // Use a generic type parameter with a default of `unknown`
   response: {
-    data: any;
+    data: T;
   };
 }
 

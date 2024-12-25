@@ -4,7 +4,21 @@ type RequestMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 interface RequestOptions {
   method?: RequestMethod;
-  body?: any;
+  body?: unknown; // Use 'unknown' instead of 'any' for better type safety
+}
+
+interface IResponseMeta {
+  message: string;
+}
+
+interface IResponse {
+  response: {
+    meta: IResponseMeta;
+  };
+}
+
+interface ErrorResponse {
+  message: string;
 }
 
 async function makeApiCallService(
@@ -19,20 +33,20 @@ async function makeApiCallService(
     const response = await fetch(url, {
       method: options.method || "GET",
       headers,
-      body: JSON.stringify(options.body),
+      body: options.body ? JSON.stringify(options.body) : undefined, // Optional chaining for body
     });
 
     if (!response.ok) {
-      const res = await response.json();
+      const res: ErrorResponse = await response.json(); // Specify the expected type here
       toast({
         variant: "destructive",
         title: "Error",
-        description: res?.response?.meta?.message,
+        description: res?.message,
       });
       return null;
     }
 
-    const data: any = await response.json();
+    const data: IResponse = await response.json(); // Type the data as IResponse
     if (response.ok) {
       toast({
         variant: "default",
@@ -42,12 +56,11 @@ async function makeApiCallService(
     }
 
     return data;
-  } catch (error) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
     toast({
       title: "API Service error",
-      description: `An error occurred while making the API call: ${
-        ((error as unknown) as any)?.message
-      }`,
+      description: `An error occurred while making the API call: ${errorMessage}`,
     });
 
     return null;

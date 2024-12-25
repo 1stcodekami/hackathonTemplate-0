@@ -1,9 +1,11 @@
-'use client'
+'use client';
+
 import React from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
+import Image from "next/image";  // Import Image from next/image
 import { PRODUCTS } from "@/app/lib/constants";
 
-function OurProductSection() {
+const OurProductSection: React.FC = () => {
   const router = useRouter();
 
   const handleProductClick = (id: string) => {
@@ -13,9 +15,9 @@ function OurProductSection() {
   return (
     <section className="w-full overflow-x-hidden">
       <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8">
-        {PRODUCTS.slice(0, 4).map((item, index) => (
+        {PRODUCTS.slice(0, 4).map((item) => (
           <div
-            key={index}
+            key={item.id} // Use unique ID instead of index for better key handling
             className="flex flex-col items-center gap-4 md:gap-6 w-full md:w-1/4"
           >
             {/* Clickable image */}
@@ -23,9 +25,12 @@ function OurProductSection() {
               onClick={() => handleProductClick(item.id)}
               className="w-full flex justify-center cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
             >
-              <img
+              {/* Use Next.js Image component for optimization */}
+              <Image
                 src={item.imageUrl}
                 alt={item.title}
+                width={500}  // Define an appropriate width
+                height={300}  // Define an appropriate height
                 className="max-w-full h-auto"
               />
             </div>
@@ -43,8 +48,8 @@ function OurProductSection() {
                   Rs. {item.price}.00
                 </p>
                 {item.otherPrice && (
-                  <p className="line-through">
-                    {item.otherPrice}
+                  <p className="line-through text-gray-500">
+                    Rs. {item.otherPrice}.00
                   </p>
                 )}
               </div>
@@ -52,11 +57,17 @@ function OurProductSection() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-[32px]">
-        {/* Optional show more button */}
+      <div className="flex justify-center mt-8">
+        {/* Optional "Show More" button */}
+        <button
+          onClick={() => router.push('/shop')}
+          className="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary-dark transition duration-300"
+        >
+          Show More
+        </button>
       </div>
     </section>
   );
-}
+};
 
 export default OurProductSection;

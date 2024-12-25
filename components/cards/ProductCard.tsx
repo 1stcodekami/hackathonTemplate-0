@@ -4,7 +4,7 @@ import { cn } from "@/app/lib/utils";
 import React from "react";
 import MainButton from "../common/MainButton";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 
 interface IProps {

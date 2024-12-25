@@ -6,9 +6,9 @@ import ProductDetailTopSection from "@/components/sections/shop/product-detail/P
 import { Separator } from "@/components/ui/separator";
 import { PRODUCTS } from "@/app/lib/constants";
 
-// Define PageProps explicitly for type safety
+// Explicitly define the type for PageProps
 export interface PageProps {
-  params: Record<string, string>;
+  params: { product_id: string };  // Ensure product_id is treated as a string
 }
 
 export default function ProductDetailPage({ params }: PageProps) {
@@ -51,8 +51,9 @@ export default function ProductDetailPage({ params }: PageProps) {
   );
 }
 
-// Generate static params for dynamic routes
+// Correct the generateStaticParams function (Ensure this function returns an array directly)
 export async function generateStaticParams() {
+  // Ensure this returns an array of objects with the correct shape
   return PRODUCTS.map((product) => ({
     params: { product_id: product.id },
   }));

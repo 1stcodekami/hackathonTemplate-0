@@ -204,7 +204,7 @@ export const PRODUCTS = [
   //   typeValue: "NORMAL",
   // },
   {
-      id: "190",
+      id: "170",
       imageUrl: "/images/Rocket single seater 1.png",
       title: "Rocket single seater",
       description: "Cloud sofa",

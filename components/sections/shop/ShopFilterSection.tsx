@@ -1,4 +1,5 @@
-import { Input } from "@/components/ui/input";
+import React from "react";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -15,29 +16,50 @@ interface ShopFilterSectionProps {
   setItemCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function ShopFilterSection({ itemCount, setItemCount }: ShopFilterSectionProps) {
+const ShopFilterSection: React.FC<ShopFilterSectionProps> = ({
+  itemCount,
+  setItemCount,
+}) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(4, parseInt(e.target.value || "4", 10)); // Minimum value of 4
-    setItemCount(Math.min(32, Math.max(4, value))); // Clamp value between 4 and 20
+    setItemCount(Math.min(32, Math.max(4, value))); // Clamp value between 4 and 32
   };
+
   return (
     <section className="bg-[#FAF4F4] px-4 py-[31px] flex flex-col md:flex-row gap-8 justify-around items-center">
-      {/* LHS */}
+      {/* LHS Section */}
       <div className="flex gap-8 items-center">
         <div className="flex gap-2 items-center hover:cursor-pointer">
-          <img
+          <Image
             src="/images/filter_icon.png"
-            alt="filter icon"
+            alt="Filter icon"
+            width={24}
+            height={24}
             className="block"
+            priority
           />
-          <p>Filter</p>
+          <p className="text-base">Filter</p>
         </div>
 
         <div className="hover:cursor-pointer">
-          <img src="/images/grid_icon.png" alt="grid icon" className="block" />
+          <Image
+            src="/images/grid_icon.png"
+            alt="Grid icon"
+            width={24}
+            height={24}
+            className="block"
+            priority
+          />
         </div>
         <div className="hover:cursor-pointer">
-          <img src="/images/list_icon.png" alt="list icon" className="block" />
+          <Image
+            src="/images/list_icon.png"
+            alt="List icon"
+            width={24}
+            height={24}
+            className="block"
+            priority
+          />
         </div>
         <div className="hidden md:block">
           <Separator
@@ -45,27 +67,29 @@ function ShopFilterSection({ itemCount, setItemCount }: ShopFilterSectionProps) 
             className="h-[37px] border border-[#9F9F9F]"
           />
         </div>
-        <p className="text-normal">Showing 1 - 16 of 32 results</p>
+        <p className="text-base">Showing 1 - {itemCount} of 32 results</p>
       </div>
-      {/* RHS */}
-      <div className="flex gap-8">
-        <div className="flex gap-[17px] items-center">
+
+      {/* RHS Section */}
+      <div className="flex gap-8 items-center">
+        {/* Show Item Count */}
+        <div className="flex gap-4 items-center">
           <p className="text-[20px]">Show</p>
-          {/* <Input type="number" className="bg-white w-[65px] h-[55px]" /> */}
-          <div>
-      <input
-        type="number"
-        value={itemCount}
-        onChange={handleInputChange}
-        min={4} // Ensure minimum value
-        className="bg-white w-[65px] h-[55px]"
-      />
-    </div>
+          <input
+            type="number"
+            value={itemCount}
+            onChange={handleInputChange}
+            min={4}
+            max={32}
+            className="bg-white w-[65px] h-[55px] text-center border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+          />
         </div>
-        <div className="flex gap-[17px] items-center">
+
+        {/* Sort By Options */}
+        <div className="flex gap-4 items-center">
           <p className="text-[20px]">Sort by</p>
           <Select>
-            <SelectTrigger className="w-[180px] h-[55px]">
+            <SelectTrigger className="w-[180px] h-[55px] bg-white border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary">
               <SelectValue placeholder="Select a filter" />
             </SelectTrigger>
             <SelectContent>
@@ -79,9 +103,8 @@ function ShopFilterSection({ itemCount, setItemCount }: ShopFilterSectionProps) 
           </Select>
         </div>
       </div>
-      
     </section>
   );
-}
+};
 
 export default ShopFilterSection;

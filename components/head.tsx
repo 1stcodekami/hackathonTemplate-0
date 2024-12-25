@@ -11,7 +11,7 @@ const Head = () => {
   const handleShopNowClick = () => {
     // Example item ID for Shop Now
     //const exampleProductId = 'example-product-id'; // Replace with actual product ID if available
-    router.push(`/shop/product/${190}`);
+    router.push(`/shop/product/${170}`);
   };
 
   return (
