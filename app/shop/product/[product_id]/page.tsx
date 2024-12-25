@@ -6,29 +6,28 @@ import ProductDetailTopSection from "@/components/sections/shop/product-detail/P
 import { Separator } from "@/components/ui/separator";
 import { PRODUCTS } from "@/app/lib/constants";
 
-export default async function ProductDetailPage({
-  params,
-}: {
+interface ProductDetailPageProps {
   params: {
-    product_id: string;
+    product_id: string; // Ensure proper typing for dynamic route parameters
   };
-}) {
-  // Await the params to access product_id
-  const { product_id } = await params;
+}
+
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { product_id } = params;
 
   // Find the product based on product_id
   const product = PRODUCTS.find((item) => item.id === product_id);
 
-  // If the product is not found, you might want to handle that case
+  // Handle the case where the product is not found
   if (!product) {
-    return <div>Product not found</div>; // You can customize this message or redirect
+    return <div>Product not found</div>; // Customize this message as needed
   }
 
   return (
     <div className="mt-24 lg:mt-8">
       <ProductDetailTopSection
         product_id={product_id}
-        productTitle={product?.title || "Product"}
+        productTitle={product.title}
       />
       <div className="mt-8 px-4 md:px-[50px] lg:px-[100px]">
         <ProductDetailShowcaseSection productId={product_id} />
@@ -45,7 +44,7 @@ export default async function ProductDetailPage({
       <div className="my-[41px]">
         <Separator className="border border-[#D9D9D9]" />
       </div>
-      
+
       <div className="mt-8 px-4 md:px-[50px] lg:px-[100px]">
         <ProductDetailRelatedSection />
       </div>
